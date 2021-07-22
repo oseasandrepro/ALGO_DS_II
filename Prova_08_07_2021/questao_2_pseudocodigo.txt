@@ -1,0 +1,16 @@
+var T[0..10^4,0..10^4]
+
+funcao f( A[], B[], x, y:inteiro ): inteiro
+	para i de 0 ate y faca
+		T[0,i] <- i
+	para j de 0 ate x faca
+		T[j,0] <- j
+	var c: inteiro
+	para i de 1 ate x faca
+		para j de 1 ate y faca
+			se A[i] = B[j]
+				c = 0
+			senao
+				c = 1
+			T[i,j] = min{ T[i-1,j-1]+c, T[i-1,j]+1, T[i,j-1]+1 }
+	retornar T[x,y]
